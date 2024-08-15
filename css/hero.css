@@ -1,0 +1,165 @@
+/* hero */
+.hero {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:start;
+    background-image: url(../lib/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    text-align: left;
+    margin-left: 15%;
+}
+
+.hero-content::before{
+    content: '';
+    background-color: var(--primary);
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    position: absolute;
+    top: 10px;
+    left: -30px;
+    animation: hero-dot .5s ease forwards;
+    animation-delay: 0.5s;
+    scale: 0;
+}
+
+@keyframes hero-dot {
+    0% {
+        scale: 0;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+.hero-content::after{
+    content: '';
+    background: linear-gradient(180deg, var(--primary) 60%, transparent);
+    height: 0;
+    width: 5px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: -25px;
+    animation: hero-line 1s ease forwards;
+    animation-delay: 1s;
+    visibility: hidden;
+}
+
+@keyframes hero-line {
+    0% {
+        visibility: visible;
+        height: 0;
+    }
+    100% {
+        visibility: visible;
+        height: 100%;
+    }
+}
+
+.main-intro{
+    font-size: 50px;
+    font-weight: 800;
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: main-intro-slide 1s ease forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes main-intro-slide {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(0);
+    }
+}
+
+.intro-name {
+    color: transparent;
+    background: linear-gradient(
+        to right, 
+        var(--primary), 
+        var(--light-accent),
+        var(--primary));
+    background-clip: text;
+    animation: gradientAnimation 3s linear infinite;
+    background-size: 200% auto;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 200% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.sub-intro {
+    font-size: 30px;
+    font-weight: 400;
+    width: max-content;
+    position: relative;
+}
+
+.sub-intro-text {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 2px;
+    animation: sub-intro-typing 1.5s ease forwards;
+    animation-delay: 4s;
+}
+
+.sub-intro-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--light-accent);
+    width: 3px;
+    height: 100%;
+    opacity: 0;
+    animation: sub-intro-cursor 0.5s linear infinite alternate forwards, stop-sub-intro-cursor 1s linear forwards;
+    animation-delay: 2.5s, 6s;
+}
+
+@keyframes sub-intro-cursor {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes stop-sub-intro-cursor {
+    100% {
+        opacity: 0%;
+        animation: none;
+    }
+}
+
+@keyframes sub-intro-typing {
+    0% {
+        width: 2px;
+    }
+    100% {
+        width: 100%;
+    }
+}

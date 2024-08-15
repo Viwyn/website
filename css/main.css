@@ -4,7 +4,7 @@
     --primary: #CF6EC5;
     --light-accent: #F295AC;
     --dark-accent: #5D2C3F;
-    --light-shade: #E6E5D7;
+    --light-shade: #ece5ee;
     --dark-shade: #0C0C0E;
 }
 
@@ -12,6 +12,7 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+    color-scheme: dark light;
 }
 
 html {
@@ -20,14 +21,9 @@ html {
 
 body {
     min-height: 100vh;
-    background-image: url(./lib/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 /* -- navbar-- */
-
 nav {
     background-color: var(--dark-shade);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
@@ -37,7 +33,6 @@ nav {
     padding: 10px;
 }
 
-/* make the words portfolio hidden when screen is too small*/
 @media only screen and (max-width: 800px){ 
     .brand-pf {
         display: none;
@@ -178,10 +173,11 @@ nav {
     }
 }
 
-/* -- navbar end -- */
-
-/* --about section -- */
-.about {
-    height: 50vh;
-    color: var(--primary);
+/* --sections -- */
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    color: var(--light-shade);
 }
