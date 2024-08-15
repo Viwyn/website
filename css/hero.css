@@ -112,52 +112,61 @@
 
 .sub-intro {
     font-size: 30px;
+    font-family: "Roboto Mono";
     font-weight: 400;
     width: max-content;
     position: relative;
 }
 
-.sub-intro-text {
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 2px;
-    animation: sub-intro-typing 1.5s ease forwards;
-    animation-delay: 4s;
-}
-
-.sub-intro-text::after {
+.sub-intro::after {
     content: '';
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     background: var(--light-accent);
     width: 3px;
     height: 100%;
     opacity: 0;
-    animation: sub-intro-cursor 0.5s linear infinite alternate forwards, stop-sub-intro-cursor 1s linear forwards;
-    animation-delay: 2.5s, 6s;
+    animation: sub-intro-cursor 3s ease forwards;
+    animation-delay: 3.5s;
 }
 
 @keyframes sub-intro-cursor {
     0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100%;
-    }
-}
-
-@keyframes stop-sub-intro-cursor {
-    100% {
         opacity: 0%;
-        animation: none;
+        left: 0;
+    }
+    20%{
+        opacity: 100%;
+        left: 0;
+    }
+    70% {
+        opacity: 100%;
+        left: 100%;
+    }
+    100%{
+        opacity: 0%;
+        left:100%;
     }
 }
 
-@keyframes sub-intro-typing {
+.sub-intro-text {
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: sub-intro-text-reveal 3s ease forwards;
+    animation-delay: 3.5s;
+}
+
+@keyframes sub-intro-text-reveal {
     0% {
-        width: 2px;
+        width: 0;
+    }
+    20%{
+        width: 0;
+    }
+    70% {
+        width: 100%;
     }
     100% {
         width: 100%;
