@@ -160,6 +160,7 @@
     border-radius: 50px;
 }
 
+
 .education div::after {
     content: "";
     position: absolute;
@@ -172,6 +173,12 @@
     z-index: -1;
     filter: blur(10px);
     border-radius: 50px;
+    transition: opacity 150ms ease;
+    opacity: 0%;
+}
+
+.education div:hover::after {
+    opacity: 100%;
 }
 
 .left {
