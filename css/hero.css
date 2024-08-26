@@ -6,10 +6,10 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: start;
-	background-image: url(../lib/bg.jpg);
+	background-image: linear-gradient(to bottom, transparent 80%, var(--dark-shade) 100%), url(../lib/bg.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center
 }
 
 .hero-content {

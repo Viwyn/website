@@ -7,12 +7,11 @@
 }
 
 .about-content {
-    padding: 0 10%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     height: 70%;
-    max-width: 100%;
+    max-width: 80%;
 }
 
 .about-content h1 {
@@ -124,120 +123,136 @@
     }
 }
 
-.education {
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 10%;
+/* -- timeline -- */
+.timeline {
     position: relative;
+    max-width: 80%;
+    margin-top: 20px;
 }
 
-.education::before {
-    content: "";
+.timeline::after {
+    content: '';
     position: absolute;
-    top: 10vh;
-    left: 50%;
     width: 5px;
-    height: calc(100% - 10vh);
-    background: white;
-}
-
-.education h1 {
-    font-weight: 800;
-    font-size: 5vh;
-    margin-bottom: 20px;
-}
-
-.education div {
-    display: flex;
-    align-items: center;
-    position: relative;
-    max-width: 45%;
-    padding: 20px 0;
-    background: var(--dark-shade);
-    border-radius: 50px;
-}
-
-
-.education div::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
     height: 100%;
-    background: var(--primary);
+    background: var(--light-shade);
+    top: 0;
+    left: 50%;
+    animation: move-line 4s linear forwards;
     z-index: -1;
-    filter: blur(10px);
+}
+
+@keyframes move-line {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+.timecard {
+    margin: 10px 0;
     border-radius: 50px;
-    transition: opacity 150ms ease;
-    opacity: 0%;
+    position: relative;
+    width: 50%;
+    /* background: var(--dark-accent); */
+    animation: timecard-appear 1s linear forwards;
+    transform: translateY(-10px);
+    opacity: 0;
 }
 
-.education div:hover::after {
-    opacity: 100%;
+@keyframes timecard-appear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.left {
-    margin-left: 0;
-    margin-right: auto;
+.timecard:nth-child(1) {
+    animation-delay: 0s;
+}
+.timecard:nth-child(2) {
+    animation-delay: 1s;
+}
+.timecard:nth-child(3) {
+    animation-delay: 2s;
+}
+.timecard:nth-child(4) {
+    animation-delay: 3s;
 }
 
-.right {
-    margin-left: auto;
-    margin-right: 0;;
+.timecard img {
+    position: absolute;
+    width: 60px;
+    border-radius: 50%;
+    right: -30px;
+    top: 32px;
+    z-index: 10;
 }
 
-.left img {
-    margin-left: 20px
+.timecard p {
+    font-size: large;
 }
 
 .right img {
-    margin-right: 20px;
+    left: -30px;
 }
 
-.left::before, .right::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    top: 50%;
-    background: white;
+.timecard div {
+    padding: .85rem 1.5rem;
+    position: relative;
+    margin: 10px 30px;
 }
 
-.left::before {
-    left: calc(100% * 10/9);
-    transform: translateX(-40%);
+.left {
+    left: 0;
 }
 
-.right::before {
-    right: calc(100% * 10/9);
-    transform: translateX(60%);
+.right {
+    left: 50%;
 }
 
-.education div img {
-    width: 40%;
-    border-radius: 100%;
-    -webkit-user-drag: none;
-    user-select: none;
-    -webkit-user-select: none;
+.timecard div h2 {
+    font-size: xx-large;
+    font-weight: 600;
 }
 
-.left p, .right img, .left h2 {
-    margin-left: 20px;
+.timecard div small {
+    display: inline-block;
+    font-size: medium;
+    margin-bottom: 15px;
 }
 
-.left img, .right p, .right h2{
-    margin-right: 20px
-}
-
-.education div div{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+@media only screen and (max-width: 650px) {
+    .timeline {
+        max-width: 100%;
+        margin: 50px 10%;
+    }
+    .timeline::after {
+        left: 40px;
+    }
+    .timecard {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 50px;
+    }
+    .timecard div small {
+        margin-bottom: 10px;
+    }
+    .right {
+        left: 0;
+    }
+    .left img, .right img{
+        left: 10px;
+    }
+    .timecard h2 {
+        font-size: large;
+    }
+    .timecard p {
+        font-size: medium;
+    }
 }
