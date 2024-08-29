@@ -35,7 +35,7 @@ setTimeout(() => {
 	}, 50);
 }, delay * 1000);
 
-const experience_url = "http://localhost:3000/api/experience";
+const experience_url = "https://viwyn.com:3000/api/experience";
 
 //add experience on load based on sql server
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		.then((response) => {
 			if (!response.ok) {
 				throw new Error(`HTTP error: ${response.status}`);
-			}
+			}	
 			return response.json();
 		})
 		.then((jsonData) => {
