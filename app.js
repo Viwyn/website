@@ -35,7 +35,7 @@ setTimeout(() => {
 	}, 50);
 }, delay * 1000);
 
-const experience_url = "http://localhost:3000/experience";
+const experience_url = "http://localhost:3000/api/experience";
 
 //add experience on load based on sql server
 document.addEventListener("DOMContentLoaded", function () {
